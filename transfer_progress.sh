@@ -2,18 +2,22 @@
 
 LOCAL_FOLDER='/mnt/virtual/tank'
 COOPER='192.168.0.31'
-REMOTE_FOLDER=$COOPER
+REMOTE_MACHINE=$COOPER
 
 RSYNC_OPTIONS='-av --progress --ignore-errors --delete'
 RSYNC_EXCLUDE="--exclude '.Trashes'"
 RSYNC_EXCLUDE="$RSYNC_EXCLUDE --exclude '.Spotlight-V100'"
+RSYNC_EXCLUDE="$RSYNC_EXCLUDE --exclude '.DS_Store'"
+RSYNC_EXCLUDE="$RSYNC_EXCLUDE --exclude '._.DS_Store'"
+
+## Play Nice with BT Sync
+RSYNC_EXCLUDE="$RSYNC_EXCLUDE --exclude '.sync'"
 
 echo "Backing up Movies"
 # requires sudo if using ssh to transfer data (ip:/local/path)
-sudo rsync -av --progress --ignore-errors --delete --exclude '.Trashes'   \
---exclude '.Spotlight-V100' --exclude '.DS_Store' --exclude '._.DS_Store' \
-/mnt/virtual/tank/Movies \
-$COOPER:/data/CooperMedia 
+sudo rsync $RSYNC_OPTIONS $RSYNC_EXCLUDE  \
+$LOCAL_FOLDER/Movies \
+$REMOTE_MACHINE:/data/CooperMedia 
 
 echo "Backing up TV Shows"
 # requires sudo if using ssh to transfer data (ip:/local/path)
