@@ -1,5 +1,12 @@
 #!/bin/sh
+
+LOCAL_FOLDER='/mnt/virtual/tank'
 COOPER='192.168.0.31'
+REMOTE_FOLDER=$COOPER
+
+RSYNC_OPTIONS='-av --progress --ignore-errors --delete'
+RSYNC_EXCLUDE="--exclude '.Trashes'"
+RSYNC_EXCLUDE="$RSYNC_EXCLUDE --exclude '.Spotlight-V100'"
 
 echo "Backing up Movies"
 # requires sudo if using ssh to transfer data (ip:/local/path)
