@@ -4,7 +4,7 @@ REMOTE_FOLDER="$COOPER:/data/CooperMedia"
 
 RSYNC_OPTIONS='-av --progress --ignore-errors --delete'
 ## Dry run
-RSYNC_OPTIONS="$RSYNC_OPTIONS --dry-run"
+#RSYNC_OPTIONS="$RSYNC_OPTIONS --dry-run"
 
 RSYNC_EXCLUDE="--exclude '.Trashes'"
 RSYNC_EXCLUDE="$RSYNC_EXCLUDE --exclude '.Spotlight-V100'"
