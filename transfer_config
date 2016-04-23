@@ -2,7 +2,7 @@ LOCAL_FOLDER='/mnt/virtual/tank'
 COOPER='192.168.0.31'
 REMOTE_FOLDER="$COOPER:/data/CooperMedia"
 
-RSYNC_OPTIONS='-av --progress --ignore-errors --delete'
+RSYNC_OPTIONS='-av --ignore-errors --delete'
 ## Dry run
 #RSYNC_OPTIONS="$RSYNC_OPTIONS --dry-run"
 
