@@ -1,6 +1,8 @@
 #!/bin/bash
 
 source ./transfer_config
+## Show Progress 
+RSYNC_OPTIONS="$RSYNC_OPTIONS --progress"
 
 echo "Backing up Movies"
 # requires sudo if using ssh to transfer data (ip:/local/path)
